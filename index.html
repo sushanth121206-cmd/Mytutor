@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Tutor — Tuition Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== SCREEN 1: ROLE SELECTION ===== -->
+  <div class="screen active" id="screen-role">
+    <div class="role-bg">
+      <div class="bg-circle c1"></div>
+      <div class="bg-circle c2"></div>
+      <div class="bg-circle c3"></div>
+    </div>
+    <div class="role-content">
+      <div class="brand-badge">
+        <span class="brand-icon">🎓</span>
+        <span class="brand-name">My Tutor</span>
+      </div>
+      <h1 class="role-headline">Welcome to<br><em>My Tutor</em></h1>
+      <p class="role-sub">A complete tuition management platform.<br>Please select your role to continue.</p>
+      <div class="role-cards">
+        <button class="role-card" id="gotoFaculty">
+          <div class="role-card-icon">👨‍🏫</div>
+          <div class="role-card-title">Faculty</div>
+          <div class="role-card-desc">Teachers & Administrative Staff</div>
+          <div class="role-card-arrow">→</div>
+        </button>
+        <button class="role-card" id="gotoParent">
+          <div class="role-card-icon">👨‍👩‍👧</div>
+          <div class="role-card-title">Parent</div>
+          <div class="role-card-desc">Monitor your child's progress</div>
+          <div class="role-card-arrow">→</div>
+        </button>
+      </div>
+      <p class="role-footer">Tuition Management System · Secure · Reliable</p>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 2: FACULTY LOGIN ===== -->
+  <div class="screen" id="screen-faculty">
+    <div class="login-layout">
+      <div class="login-left">
+        <div class="login-left-inner">
+          <button class="back-btn" id="backFromFaculty">← Back</button>
+          <div class="login-brand">
+            <div class="login-logo">🎓</div>
+            <span class="brand-name">My Tutor</span>
+          </div>
+          <h2 class="login-title">Faculty Login</h2>
+          <p class="login-sub">Welcome back! Sign in to manage your classes, students and more.</p>
+
+          <div class="form-block">
+            <div class="input-group" id="fPhoneGroup">
+              <label class="input-label">Phone Number</label>
+              <div class="input-wrap">
+                <span class="input-prefix">+91</span>
+                <input type="tel" id="fPhone" maxlength="10" placeholder="10-digit mobile number" inputmode="numeric">
+              </div>
+              <span class="input-hint" id="fPhoneHint"></span>
+            </div>
+
+            <div class="input-group" id="fEmailGroup">
+              <label class="input-label">Email Address</label>
+              <div class="input-wrap">
+                <span class="input-icon">✉</span>
+                <input type="email" id="fEmail" placeholder="yourname@school.com">
+              </div>
+              <span class="input-hint" id="fEmailHint"></span>
+            </div>
+
+            <div class="input-group" id="fPassGroup">
+              <label class="input-label">Password</label>
+              <div class="input-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="fPass" placeholder="Enter your password">
+                <button class="eye-btn" id="fEye" tabindex="-1">👁</button>
+              </div>
+              <span class="input-hint" id="fPassHint"></span>
+            </div>
+
+            <div class="form-row-flex">
+              <label class="checkbox-label">
+                <input type="checkbox" id="fRemember"> Remember me
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button class="login-btn" id="fLoginBtn">
+              <span>Sign In as Faculty</span>
+              <span class="btn-arrow">→</span>
+            </button>
+            <div class="login-error" id="fError"></div>
+          </div>
+
+          <div class="demo-hint">
+            <span>Demo credentials:</span>
+            <code>Phone: 9876543210 &nbsp;|&nbsp; Email: faculty@mytutor.com &nbsp;|&nbsp; Pass: faculty123</code>
+          </div>
+        </div>
+      </div>
+      <div class="login-right faculty-right">
+        <div class="login-right-content">
+          <div class="login-right-icon">📚</div>
+          <h3>Manage with ease</h3>
+          <ul class="login-features">
+            <li>✦ Track student attendance daily</li>
+            <li>✦ Schedule & grade examinations</li>
+            <li>✦ View class timetables</li>
+            <li>✦ Send fee reminders to parents</li>
+            <li>✦ Generate performance reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 3: PARENT LOGIN ===== -->
+  <div class="screen" id="screen-parent">
+    <div class="login-layout">
+      <div class="login-left">
+        <div class="login-left-inner">
+          <button class="back-btn" id="backFromParent">← Back</button>
+          <div class="login-brand">
+            <div class="login-logo">🎓</div>
+            <span class="brand-name">My Tutor</span>
+          </div>
+          <h2 class="login-title">Parent Login</h2>
+          <p class="login-sub">Stay connected with your child's academic journey in real time.</p>
+
+          <div class="form-block">
+            <div class="input-group" id="pPhoneGroup">
+              <label class="input-label">Phone Number</label>
+              <div class="input-wrap">
+                <span class="input-prefix">+91</span>
+                <input type="tel" id="pPhone" maxlength="10" placeholder="10-digit mobile number" inputmode="numeric">
+              </div>
+              <span class="input-hint" id="pPhoneHint"></span>
+            </div>
+
+            <div class="input-group" id="pEmailGroup">
+              <label class="input-label">Email Address</label>
+              <div class="input-wrap">
+                <span class="input-icon">✉</span>
+                <input type="email" id="pEmail" placeholder="parent@email.com">
+              </div>
+              <span class="input-hint" id="pEmailHint"></span>
+            </div>
+
+            <div class="input-group" id="pPassGroup">
+              <label class="input-label">Password</label>
+              <div class="input-wrap">
+                <span class="input-icon">🔒</span>
+                <input type="password" id="pPass" placeholder="Enter your password">
+                <button class="eye-btn" id="pEye" tabindex="-1">👁</button>
+              </div>
+              <span class="input-hint" id="pPassHint"></span>
+            </div>
+
+            <div class="form-row-flex">
+              <label class="checkbox-label">
+                <input type="checkbox" id="pRemember"> Remember me
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button class="login-btn parent-btn" id="pLoginBtn">
+              <span>Sign In as Parent</span>
+              <span class="btn-arrow">→</span>
+            </button>
+            <div class="login-error" id="pError"></div>
+          </div>
+
+          <div class="demo-hint">
+            <span>Demo credentials:</span>
+            <code>Phone: 9876543210 &nbsp;|&nbsp; Email: parent@mytutor.com &nbsp;|&nbsp; Pass: parent123</code>
+          </div>
+        </div>
+      </div>
+      <div class="login-right parent-right">
+        <div class="login-right-content">
+          <div class="login-right-icon">👶</div>
+          <h3>Stay in the loop</h3>
+          <ul class="login-features">
+            <li>✦ View your child's attendance</li>
+            <li>✦ Check exam scores & grades</li>
+            <li>✦ Track fee payment status</li>
+            <li>✦ Receive absence alerts instantly</li>
+            <li>✦ Download progress reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 4: DASHBOARD (FACULTY) ===== -->
+  <div class="screen" id="screen-dashboard">
+    <div class="app-layout">
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-brand">
+            <span class="brand-icon sm">🎓</span>
+            <span class="brand-name sm" id="sbBrand">My Tutor</span>
+          </div>
+          <button class="sidebar-collapse" id="sidebarToggle">☰</button>
+        </div>
+
+        <div class="sidebar-user" id="sidebarUser">
+          <div class="su-avatar" id="suAvatar">FA</div>
+          <div class="su-info" id="suInfo">
+            <span class="su-name" id="suName">Faculty Admin</span>
+            <span class="su-role" id="suRole">Faculty</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a class="nav-item active" data-page="dashboard" href="#">
+            <span class="ni">🏠</span><span class="nl">Dashboard</span>
+          </a>
+          <a class="nav-item" data-page="enrollment" href="#">
+            <span class="ni">📝</span><span class="nl">Enrollment</span>
+          </a>
+          <a class="nav-item" data-page="attendance" href="#">
+            <span class="ni">✅</span><span class="nl">Attendance</span>
+          </a>
+          <a class="nav-item" data-page="exams" href="#">
+            <span class="ni">📊</span><span class="nl">Exams & Results</span>
+          </a>
+          <a class="nav-item" data-page="finance" href="#">
+            <span class="ni">💰</span><span class="nl">Finance</span>
+          </a>
+          <a class="nav-item" data-page="schedule" href="#">
+            <span class="ni">🗓</span><span class="nl">Schedule</span>
+          </a>
+          <a class="nav-item" data-page="students" href="#">
+            <span class="ni">👩‍🎓</span><span class="nl">Students</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <button class="logout-btn" id="logoutBtn">
+            <span class="ni">🚪</span><span class="nl">Logout</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="main-area">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-heading" id="pageHeading">Dashboard</h1>
+            <span class="page-date" id="pageDate"></span>
+          </div>
+          <div class="topbar-right">
+            <div class="search-wrap">
+              <span>🔍</span>
+              <input type="text" placeholder="Search students, classes…" id="globalSearch">
+            </div>
+            <div class="notif-wrap" id="notifBtn" title="Notifications">
+              🔔
+              <span class="notif-badge">3</span>
+            </div>
+            <div class="user-chip" id="userChip">FA</div>
+          </div>
+        </header>
+
+        <div class="content-area">
+
+          <!-- Dashboard Page -->
+          <div class="page active" id="page-dashboard">
+            <div class="stats-row">
+              <div class="stat-tile" style="--tc:#1e8fc4">
+                <div class="st-icon">👩‍🎓</div>
+                <div class="st-body">
+                  <div class="st-label">Total Students</div>
+                  <div class="st-val counter" data-target="1248">0</div>
+                  <div class="st-delta pos">↑ 4.2% this month</div>
+                </div>
+              </div>
+              <div class="stat-tile" style="--tc:#2ea8a0">
+                <div class="st-icon">📚</div>
+                <div class="st-body">
+                  <div class="st-label">Classes Today</div>
+                  <div class="st-val counter" data-target="34">0</div>
+                  <div class="st-delta pos">↑ 2 new sessions</div>
+                </div>
+              </div>
+              <div class="stat-tile" style="--tc:#2272b4">
+                <div class="st-icon">💳</div>
+                <div class="st-body">
+                  <div class="st-label">Fee Collected</div>
+                  <div class="st-val">₹8.4L</div>
+                  <div class="st-delta pos">↑ 11% vs last month</div>
+                </div>
+              </div>
+              <div class="stat-tile" style="--tc:#e07b39">
+                <div class="st-icon">⚠️</div>
+                <div class="st-body">
+                  <div class="st-label">Pending Dues</div>
+                  <div class="st-val counter" data-target="87">0</div>
+                  <div class="st-delta neg">12 resolved today</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dash-grid">
+              <div class="dash-card span2">
+                <div class="card-hdr">
+                  <h3>Weekly Attendance</h3>
+                  <div class="legend-row">
+                    <span class="leg-dot" style="background:#1e8fc4"></span> Present
+                    <span class="leg-dot" style="background:#e07b39;margin-left:1rem"></span> Absent
+                  </div>
+                </div>
+                <canvas id="attChart" height="160"></canvas>
+              </div>
+
+              <div class="dash-card">
+                <div class="card-hdr"><h3>Recent Enrollments</h3></div>
+                <ul class="enroll-list" id="recentEnroll"></ul>
+              </div>
+
+              <div class="dash-card span2">
+                <div class="card-hdr"><h3>Upcoming Exams</h3></div>
+                <table class="dtable" id="dashExamTable">
+                  <thead><tr><th>Subject</th><th>Class</th><th>Date</th><th>Room</th><th>Status</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+
+              <div class="dash-card">
+                <div class="card-hdr"><h3>Fee Overview</h3></div>
+                <div class="donut-box">
+                  <canvas id="feeChart" width="130" height="130"></canvas>
+                  <div id="donutLegend" class="dlegend"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enrollment Page -->
+          <div class="page" id="page-enrollment">
+            <div class="page-toolbar">
+              <button class="btn-sky" id="openEnrollModal">+ New Enrollment</button>
+              <div class="filters">
+                <select><option>All Classes</option><option>Grade 1–5</option><option>Grade 6–10</option><option>Grade 11–12</option></select>
+                <select><option>All Status</option><option>Active</option><option>Pending</option><option>Waitlisted</option></select>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="dtable full" id="enrollTable">
+                <thead><tr><th>Student</th><th>Class</th><th>Parent</th><th>Phone</th><th>Joined</th><th>Status</th><th>Action</th></tr></thead>
+                <tbody id="enrollBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Attendance Page -->
+          <div class="page" id="page-attendance">
+            <div class="att-controls">
+              <div class="date-nav">
+                <button id="prevDay">◀</button>
+                <span id="attDate"></span>
+                <button id="nextDay">▶</button>
+              </div>
+              <div class="cls-pick">
+                <label>Class:</label>
+                <select id="classSelect">
+                  <option>Grade 6-A</option><option>Grade 7-B</option><option>Grade 8-C</option><option>Grade 9-A</option>
+                </select>
+              </div>
+              <button class="btn-sky" id="saveAtt">💾 Save Attendance</button>
+            </div>
+            <div class="att-grid" id="attGrid"></div>
+            <div class="att-summary" id="attSummary"></div>
+          </div>
+
+          <!-- Exams Page -->
+          <div class="page" id="page-exams">
+            <div class="page-toolbar">
+              <button class="btn-sky" id="openExamModal">+ Schedule Exam</button>
+            </div>
+            <div class="exam-grid" id="examGrid"></div>
+            <div class="table-wrap" style="margin-top:1.5rem">
+              <div class="card-hdr" style="padding:1rem 1.25rem"><h3>Recent Results</h3></div>
+              <table class="dtable full">
+                <thead><tr><th>Student</th><th>Subject</th><th>Score</th><th>Grade</th><th>Remarks</th></tr></thead>
+                <tbody id="resultsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Finance Page -->
+          <div class="page" id="page-finance">
+            <div class="fin-stats">
+              <div class="fin-tile" style="--fc:#1e8fc4"><span class="ft-l">Collected</span><span class="ft-v">₹8,42,500</span></div>
+              <div class="fin-tile" style="--fc:#e07b39"><span class="ft-l">Pending</span><span class="ft-v">₹1,23,400</span></div>
+              <div class="fin-tile" style="--fc:#2ea8a0"><span class="ft-l">Total Invoiced</span><span class="ft-v">₹9,65,900</span></div>
+              <div class="fin-tile" style="--fc:#7a9e5b"><span class="ft-l">Concessions</span><span class="ft-v">₹18,200</span></div>
+            </div>
+            <div class="page-toolbar" style="margin-top:1.25rem">
+              <button class="btn-sky" id="genInvoice">+ Generate Invoice</button>
+              <div class="filters">
+                <select><option>All Students</option></select>
+                <select><option>March 2026</option><option>February 2026</option></select>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="dtable full">
+                <thead><tr><th>Invoice #</th><th>Student</th><th>Amount</th><th>Due Date</th><th>Status</th><th>Action</th></tr></thead>
+                <tbody id="finBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Schedule Page -->
+          <div class="page" id="page-schedule">
+            <div class="sched-header">
+              <h3>Weekly Timetable</h3>
+              <select id="ttClass"><option>Grade 6-A</option><option>Grade 7-B</option><option>Grade 8-C</option></select>
+            </div>
+            <div class="tt-wrap" id="ttWrap"></div>
+          </div>
+
+          <!-- Students Page -->
+          <div class="page" id="page-students">
+            <div class="page-toolbar">
+              <button class="btn-sky">+ Add Student</button>
+              <input class="search-inline" type="text" placeholder="Search name or ID…" id="studentSearch">
+            </div>
+            <div class="student-grid" id="studentGrid"></div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- PARENT DASHBOARD -->
+  <div class="screen" id="screen-parent-dash">
+    <div class="app-layout">
+      <aside class="sidebar" id="psidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-brand">
+            <span class="brand-icon sm">🎓</span>
+            <span class="brand-name sm">My Tutor</span>
+          </div>
+          <button class="sidebar-collapse" id="psidebarToggle">☰</button>
+        </div>
+        <div class="sidebar-user">
+          <div class="su-avatar" style="background:var(--teal)">PR</div>
+          <div class="su-info">
+            <span class="su-name">Parent</span>
+            <span class="su-role">Parent Portal</span>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="nav-item active" data-pdash="overview" href="#">
+            <span class="ni">🏠</span><span class="nl">Overview</span>
+          </a>
+          <a class="nav-item" data-pdash="attendance" href="#">
+            <span class="ni">✅</span><span class="nl">Attendance</span>
+          </a>
+          <a class="nav-item" data-pdash="results" href="#">
+            <span class="ni">📊</span><span class="nl">Results</span>
+          </a>
+          <a class="nav-item" data-pdash="fees" href="#">
+            <span class="ni">💳</span><span class="nl">Fee Status</span>
+          </a>
+          <a class="nav-item" data-pdash="schedule" href="#">
+            <span class="ni">🗓</span><span class="nl">Schedule</span>
+          </a>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="logout-btn" id="pLogoutBtn">
+            <span class="ni">🚪</span><span class="nl">Logout</span>
+          </button>
+        </div>
+      </aside>
+      <main class="main-area">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-heading" id="pPageHeading">Overview</h1>
+            <span class="page-date" id="pPageDate"></span>
+          </div>
+          <div class="topbar-right">
+            <div class="user-chip" style="background:var(--teal)">PR</div>
+          </div>
+        </header>
+        <div class="content-area">
+
+          <!-- Overview -->
+          <div class="page active" id="pdash-overview">
+            <div class="parent-welcome">
+              <div class="pw-text">
+                <h2>Hello, Parent! 👋</h2>
+                <p>Here's a quick summary of <strong>Aarav Sharma</strong>'s academic progress.</p>
+              </div>
+              <div class="pw-student">
+                <div class="su-avatar lg">AS</div>
+                <div>
+                  <div style="font-weight:700;font-size:1.1rem">Aarav Sharma</div>
+                  <div style="color:var(--text-muted);font-size:0.85rem">Grade 9-A · TMS001</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-tile" style="--tc:#1e8fc4"><div class="st-icon">📅</div><div class="st-body"><div class="st-label">Attendance</div><div class="st-val">92%</div><div class="st-delta pos">↑ Good standing</div></div></div>
+              <div class="stat-tile" style="--tc:#2ea8a0"><div class="st-icon">🏆</div><div class="st-body"><div class="st-label">Average Score</div><div class="st-val">87%</div><div class="st-delta pos">↑ Top 10% of class</div></div></div>
+              <div class="stat-tile" style="--tc:#7a9e5b"><div class="st-icon">✅</div><div class="st-body"><div class="st-label">Fee Status</div><div class="st-val">Paid</div><div class="st-delta pos">March 2026 cleared</div></div></div>
+              <div class="stat-tile" style="--tc:#2272b4"><div class="st-icon">📝</div><div class="st-body"><div class="st-label">Exams This Month</div><div class="st-val">3</div><div class="st-delta pos">Next: 22 Mar</div></div></div>
+            </div>
+            <div class="dash-grid">
+              <div class="dash-card span2">
+                <div class="card-hdr"><h3>Recent Exam Results</h3></div>
+                <table class="dtable full">
+                  <thead><tr><th>Subject</th><th>Score</th><th>Grade</th><th>Date</th></tr></thead>
+                  <tbody>
+                    <tr><td>Mathematics</td><td>87/100</td><td><span class="badge badge-sky">A</span></td><td>Feb 2026</td></tr>
+                    <tr><td>Science</td><td>92/100</td><td><span class="badge badge-green">A+</span></td><td>Feb 2026</td></tr>
+                    <tr><td>English</td><td>74/80</td><td><span class="badge badge-sky">A</span></td><td>Jan 2026</td></tr>
+                    <tr><td>Social Studies</td><td>71/80</td><td><span class="badge badge-sky">A</span></td><td>Jan 2026</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="dash-card">
+                <div class="card-hdr"><h3>Upcoming Events</h3></div>
+                <ul class="event-list">
+                  <li><span class="ev-date">22 Mar</span><span class="ev-label">Mathematics Exam</span></li>
+                  <li><span class="ev-date">24 Mar</span><span class="ev-label">Science Exam</span></li>
+                  <li><span class="ev-date">31 Mar</span><span class="ev-label">Fee Due Date</span></li>
+                  <li><span class="ev-date">05 Apr</span><span class="ev-label">Parent–Teacher Meet</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendance -->
+          <div class="page" id="pdash-attendance">
+            <div class="dash-card" style="max-width:100%">
+              <div class="card-hdr"><h3>📅 Aarav's Attendance — March 2026</h3></div>
+              <div class="p-info-box">
+                <div class="p-info-item"><span class="p-info-label">Total Classes</span><span class="p-info-val">22</span></div>
+                <div class="p-info-item"><span class="p-info-label">Present</span><span class="p-info-val" style="color:#2e7d2e">20</span></div>
+                <div class="p-info-item"><span class="p-info-label">Absent</span><span class="p-info-val" style="color:#b02020">2</span></div>
+                <div class="p-info-item"><span class="p-info-label">Attendance %</span><span class="p-info-val" style="color:#1e8fc4">92%</span></div>
+              </div>
+              <table class="dtable full" style="margin-top:1rem">
+                <thead><tr><th>Date</th><th>Subject</th><th>Status</th><th>Note</th></tr></thead>
+                <tbody>
+                  <tr><td>18 Mar 2026</td><td>Mathematics</td><td><span class="badge badge-green">Present</span></td><td>—</td></tr>
+                  <tr><td>17 Mar 2026</td><td>Science</td><td><span class="badge badge-green">Present</span></td><td>—</td></tr>
+                  <tr><td>16 Mar 2026</td><td>English</td><td><span class="badge badge-red">Absent</span></td><td>Sick leave</td></tr>
+                  <tr><td>15 Mar 2026</td><td>Mathematics</td><td><span class="badge badge-green">Present</span></td><td>—</td></tr>
+                  <tr><td>14 Mar 2026</td><td>Social Studies</td><td><span class="badge badge-green">Present</span></td><td>—</td></tr>
+                  <tr><td>13 Mar 2026</td><td>Science</td><td><span class="badge badge-amber">Late</span></td><td>10 min late</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="page" id="pdash-results">
+            <div class="dash-card">
+              <div class="card-hdr"><h3>📊 Aarav's Exam Results</h3></div>
+              <table class="dtable full">
+                <thead><tr><th>Subject</th><th>Score</th><th>Out of</th><th>Grade</th><th>Remarks</th></tr></thead>
+                <tbody>
+                  <tr><td>Mathematics</td><td>87</td><td>100</td><td><span class="badge badge-sky">A</span></td><td>Excellent work</td></tr>
+                  <tr><td>Science</td><td>92</td><td>100</td><td><span class="badge badge-green">A+</span></td><td>Outstanding</td></tr>
+                  <tr><td>English</td><td>74</td><td>80</td><td><span class="badge badge-sky">A</span></td><td>Good effort</td></tr>
+                  <tr><td>Social Studies</td><td>71</td><td>80</td><td><span class="badge badge-sky">A</span></td><td>Very good</td></tr>
+                  <tr><td>Computer Science</td><td>88</td><td>100</td><td><span class="badge badge-sky">A</span></td><td>Good performance</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Fee Status -->
+          <div class="page" id="pdash-fees">
+            <div class="stats-row" style="grid-template-columns:repeat(3,1fr)">
+              <div class="stat-tile" style="--tc:#7a9e5b"><div class="st-icon">✅</div><div class="st-body"><div class="st-label">This Month</div><div class="st-val">Paid</div><div class="st-delta pos">₹8,500 — March 2026</div></div></div>
+              <div class="stat-tile" style="--tc:#1e8fc4"><div class="st-icon">📋</div><div class="st-body"><div class="st-label">Total Paid (Year)</div><div class="st-val">₹68,000</div><div class="st-delta pos">8 months cleared</div></div></div>
+              <div class="stat-tile" style="--tc:#e07b39"><div class="st-icon">📅</div><div class="st-body"><div class="st-label">Next Due</div><div class="st-val">30 Apr</div><div class="st-delta neg">₹8,500 due</div></div></div>
+            </div>
+            <div class="table-wrap" style="margin-top:1rem">
+              <table class="dtable full">
+                <thead><tr><th>Month</th><th>Amount</th><th>Paid On</th><th>Status</th><th>Receipt</th></tr></thead>
+                <tbody>
+                  <tr><td>March 2026</td><td>₹8,500</td><td>02 Mar 2026</td><td><span class="badge badge-green">Paid</span></td><td><button class="btn-sm">Download</button></td></tr>
+                  <tr><td>February 2026</td><td>₹8,500</td><td>01 Feb 2026</td><td><span class="badge badge-green">Paid</span></td><td><button class="btn-sm">Download</button></td></tr>
+                  <tr><td>January 2026</td><td>₹8,500</td><td>03 Jan 2026</td><td><span class="badge badge-green">Paid</span></td><td><button class="btn-sm">Download</button></td></tr>
+                  <tr><td>December 2025</td><td>₹8,500</td><td>01 Dec 2025</td><td><span class="badge badge-green">Paid</span></td><td><button class="btn-sm">Download</button></td></tr>
+                  <tr><td>April 2026</td><td>₹8,500</td><td>—</td><td><span class="badge badge-amber">Upcoming</span></td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Schedule -->
+          <div class="page" id="pdash-schedule">
+            <div class="dash-card">
+              <div class="card-hdr"><h3>🗓 Aarav's Weekly Timetable — Grade 9-A</h3></div>
+              <div class="tt-wrap" style="margin-top:0.75rem">
+                <div class="ttg">
+                  <div class="ttc tth">Time</div>
+                  <div class="ttc tth">Monday</div>
+                  <div class="ttc tth">Tuesday</div>
+                  <div class="ttc tth">Wednesday</div>
+                  <div class="ttc tth">Thursday</div>
+                  <div class="ttc tth">Friday</div>
+                  <div class="ttc ttt">8:00 AM</div><div class="ttc"><span class="tt-pill tt-math">Mathematics</span></div><div class="ttc"><span class="tt-pill tt-sci">Science</span></div><div class="ttc"><span class="tt-pill tt-lang">English</span></div><div class="ttc"><span class="tt-free">—</span></div><div class="ttc"><span class="tt-pill tt-math">Mathematics</span></div>
+                  <div class="ttc ttt">9:00 AM</div><div class="ttc"><span class="tt-pill tt-sci">Science</span></div><div class="ttc"><span class="tt-pill tt-math">Mathematics</span></div><div class="ttc"><span class="tt-free">—</span></div><div class="ttc"><span class="tt-pill tt-lang">English</span></div><div class="ttc"><span class="tt-pill tt-sci">Science</span></div>
+                  <div class="ttc ttt">10:00 AM</div><div class="ttc"><span class="tt-pill tt-lang">English</span></div><div class="ttc"><span class="tt-free">—</span></div><div class="ttc"><span class="tt-pill tt-math">Mathematics</span></div><div class="ttc"><span class="tt-pill tt-sci">Science</span></div><div class="ttc"><span class="tt-pill tt-lang">English</span></div>
+                  <div class="ttc ttt">11:00 AM</div><div class="ttc"><span class="tt-free">—</span></div><div class="ttc"><span class="tt-pill tt-lang">English</span></div><div class="ttc"><span class="tt-pill tt-sci">Science</span></div><div class="ttc"><span class="tt-pill tt-math">Mathematics</span></div><div class="ttc"><span class="tt-free">—</span></div>
+                  <div class="ttc ttt">2:00 PM</div><div class="ttc"><span class="tt-pill tt-sci">Science</span></div><div class="ttc"><span class="tt-pill tt-lang">English</span></div><div class="ttc"><span class="tt-pill tt-math">Mathematics</span></div><div class="ttc"><span class="tt-pill tt-lang">English</span></div><div class="ttc"><span class="tt-free">—</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ENROLLMENT MODAL -->
+  <div class="overlay" id="enrollModal">
+    <div class="modal">
+      <div class="modal-hdr">
+        <h3>New Student Enrollment</h3>
+        <button class="mclose" id="closeEnroll">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="mrow">
+          <div class="mgrp"><label>Student Full Name *</label><input type="text" id="eNameI" placeholder="e.g. Rahul Sharma"></div>
+          <div class="mgrp"><label>Date of Birth *</label><input type="date" id="eDobI"></div>
+        </div>
+        <div class="mrow">
+          <div class="mgrp"><label>Class / Grade *</label>
+            <select id="eClassI">
+              <option>Grade 1</option><option>Grade 2</option><option>Grade 6</option>
+              <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+              <option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+            </select>
+          </div>
+          <div class="mgrp"><label>Section *</label>
+            <select id="eSectionI"><option>A</option><option>B</option><option>C</option></select>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="mgrp"><label>Parent / Guardian Name *</label><input type="text" id="eParentI" placeholder="Parent name"></div>
+          <div class="mgrp">
+            <label>Parent Phone * (10 digits)</label>
+            <div class="input-wrap sm-wrap">
+              <span class="input-prefix">+91</span>
+              <input type="tel" id="ePhoneI" maxlength="10" placeholder="10-digit number" inputmode="numeric">
+            </div>
+            <span class="field-hint" id="ePhoneHint"></span>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="mgrp full-width">
+            <label>Parent Email *</label>
+            <input type="email" id="eEmailI" placeholder="parent@email.com">
+            <span class="field-hint" id="eEmailHint"></span>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="mgrp full-width"><label>Medical Notes (optional)</label><textarea id="eMedI" rows="2" placeholder="Allergies or conditions…"></textarea></div>
+        </div>
+      </div>
+      <div class="modal-ftr">
+        <button class="btn-ghost" id="cancelEnroll">Cancel</button>
+        <button class="btn-sky" id="submitEnroll">Enroll Student</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM MODAL -->
+  <div class="overlay" id="examModal">
+    <div class="modal">
+      <div class="modal-hdr">
+        <h3>Schedule New Exam</h3>
+        <button class="mclose" id="closeExam">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="mrow">
+          <div class="mgrp"><label>Subject *</label><input type="text" id="exSubI" placeholder="e.g. Mathematics"></div>
+          <div class="mgrp"><label>Class *</label>
+            <select id="exClassI"><option>Grade 6-A</option><option>Grade 7-B</option><option>Grade 8-C</option><option>Grade 9-A</option></select>
+          </div>
+        </div>
+        <div class="mrow">
+          <div class="mgrp"><label>Date *</label><input type="date" id="exDateI"></div>
+          <div class="mgrp"><label>Room *</label><input type="text" id="exRoomI" placeholder="e.g. Room 204"></div>
+        </div>
+        <div class="mrow">
+          <div class="mgrp"><label>Duration (minutes)</label><input type="number" id="exDurI" value="90" min="30" max="180"></div>
+          <div class="mgrp"><label>Maximum Marks</label><input type="number" id="exMarksI" value="100" min="10" max="200"></div>
+        </div>
+      </div>
+      <div class="modal-ftr">
+        <button class="btn-ghost" id="cancelExam">Cancel</button>
+        <button class="btn-sky" id="submitExam">Schedule Exam</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGOUT CONFIRMATION POPUP -->
+  <div class="overlay" id="logoutModal">
+    <div class="modal" style="max-width:400px">
+      <div class="modal-hdr" style="background:#fff5f5;border-bottom:1.5px solid #fde0e0">
+        <h3 style="color:#b02020">🚪 Confirm Logout</h3>
+        <button class="mclose" id="closeLogout">✕</button>
+      </div>
+      <div class="modal-body" style="text-align:center;gap:0.75rem;padding:2rem">
+        <div style="font-size:3rem">👋</div>
+        <div style="font-size:1rem;font-weight:700;color:var(--navy)">Are you sure you want to logout?</div>
+        <div style="font-size:0.88rem;color:var(--text-muted)">You will be taken back to the role selection screen.</div>
+      </div>
+      <div class="modal-ftr" style="justify-content:center;gap:1rem;background:#fff5f5">
+        <button class="btn-ghost" id="cancelLogout" style="min-width:120px">Cancel</button>
+        <button class="btn-sky" id="confirmLogout" style="min-width:120px;background:linear-gradient(135deg,#e05c5c,#b02020)">Yes, Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
